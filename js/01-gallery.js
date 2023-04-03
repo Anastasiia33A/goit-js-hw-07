@@ -5,7 +5,7 @@ const galleryMarkup = galleryItems
     .map(({ preview, original, description }) =>
         `<li class="gallery__item">
             <a class="gallery__link" href="${original}">
-                <img class="gallry__img"
+                <img class="gallery__image"
             src="${preview}" data-source="${original}" alt="${description}"/>
             </a>
         </li>`
@@ -20,7 +20,7 @@ galleryContainer.addEventListener('click', (event) => {
     event.preventDefault();
 
     const modal = basicLightbox.create(
-        `<img scr='${event.target.dataset.source}' alt= '${event.target.alt}' style=' "width: 1400px"; height: 900px'>`,
+        `<img src='${event.target.dataset.source}' alt="${event.target.alt}" style="width: 1400px; height: 900px">`,
         {
             onClose: () => {
                 document.removeEventListener('keydown', closeModal);
